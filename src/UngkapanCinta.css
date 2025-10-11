@@ -1,9 +1,8 @@
-/* --- 1. Import Font & Gaya Global --- */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
 
 :root {
-  --primary-color: #ff7675; /* Merah muda cerah */
-  --secondary-color: #2ecc71; /* Hijau segar */
+  --primary-color: #ff7675;
+  --secondary-color: #2ecc71;
   --background-gradient: linear-gradient(135deg, #fff1f2 0%, #fde2e4 100%);
   --card-background: rgba(255, 255, 255, 0.85);
   --text-color: #4a4a4a;
@@ -22,7 +21,6 @@ body {
   box-sizing: border-box;
 }
 
-/* --- 2. Gaya Kartu Utama --- */
 .container-cinta {
   background: var(--card-background);
   backdrop-filter: blur(10px);
@@ -38,7 +36,6 @@ body {
   align-items: center;
 }
 
-/* --- 3. Gambar & Teks --- */
 .gambar-gif {
   width: 150px;
   height: 150px;
@@ -47,19 +44,18 @@ body {
 
 .teks-pertanyaan, .teks-sukses {
   color: var(--text-color);
-  font-size: clamp(1.5rem, 5vw, 2.1rem); /* Font responsif */
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
   font-weight: 800;
   margin: 0 0 30px 0;
 }
 
-/* --- 4. Tombol --- */
 .container-tombol {
-  display: flex;
-  gap: 15px;
-  width: 100%;
-  justify-content: center;
-  min-height: 50px; /* Memberi ruang agar tombol 'Nggak' bisa bergerak */
   position: relative;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tombol {
@@ -85,10 +81,9 @@ body {
 
 .tombol-nggak {
   background-color: var(--primary-color);
-  transition: top 0.4s ease, left 0.4s ease, transform 0.3s ease;
+  transition: transform 0.4s ease, top 0.4s ease, left 0.4s ease;
 }
 
-/* --- 5. Notifikasi --- */
 .notif {
   position: fixed;
   top: 20px;
@@ -105,29 +100,45 @@ body {
 }
 
 @keyframes slideDownFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* --- 6. Media Query untuk Layar Lebih Besar (Tablet & Desktop) --- */
 @media (min-width: 600px) {
-  .container-cinta {
-    padding: 40px;
-  }
-  
-  .gambar-gif {
-    width: 200px;
-    height: 200px;
-  }
+  .container-cinta { padding: 40px; }
+  .gambar-gif { width: 200px; height: 200px; }
+  .tombol { padding: 15px 35px; font-size: 1.1rem; }
+}
 
-  .tombol {
-    padding: 15px 35px;
-    font-size: 1.1rem;
-  }
+.container-sukses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.teks-tambahan {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color, #4a4a4a);
+  margin: 10px 0 0 0;
+}
+
+.teks-ajakan {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0 25px 0;
+}
+
+.tombol-wa {
+  background-color: #25D366;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.tombol-wa:hover {
+  background-color: #1DA851;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }

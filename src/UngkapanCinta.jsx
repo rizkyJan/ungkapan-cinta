@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import "./UngkapanCinta.css";
+import React, { useState } from 'react';
+import './UngkapanCinta.css';
 
 const pesanNggak = [
-  "Nggak",
-  "Yakin?",
-  "Coba pikir lagi",
-  "Ayolaaahhh",
-  "Please...",
-  "Kok kamu gitu?",
-  "Aku sedih loh",
-  "Jangan lari terus",
-  "Kena deh!",
+  "Nggak", "Yakin?", "Coba pikir lagi", "Ayolaaahhh", "Please...", "Kok kamu gitu?", "Aku sedih loh", "Jangan lari terus", "Kena deh!"
 ];
 
 const UngkapanCinta = () => {
   const [sudahDiterima, setSudahDiterima] = useState(false);
   const [jumlahNggak, setJumlahNggak] = useState(0);
-  const [notif, setNotif] = useState("");
+  const [notif, setNotif] = useState('');
 
   const ukuranTombolIya = 16 + jumlahNggak * 8;
   const teksTombolNggak = pesanNggak[jumlahNggak % pesanNggak.length];
@@ -25,35 +17,34 @@ const UngkapanCinta = () => {
     setSudahDiterima(true);
   }
 
-  // Fungsi ini HANYA untuk mengubah teks jika tombol berhasil diklik
   function handleNggakClick() {
     setJumlahNggak(jumlahNggak + 1);
   }
 
-  // FUNGSI UTAMA untuk memindahkan tombol
   function pindahkanTombol(e) {
-    // Tampilkan notifikasi
-    setNotif("Eits ga kena, coba lagi! 😉");
-
-    // Hilangkan notifikasi setelah 2 detik
-    setTimeout(() => {
-      setNotif("");
-    }, 2000);
+    setNotif('Eits ga kena, coba lagi! 😉');
+    setTimeout(() => setNotif(''), 2000);
 
     const tombol = e.currentTarget;
-    const container = tombol.closest(".container-cinta"); // Cari container terdekat
+    if (tombol.style.position !== 'absolute') {
+      tombol.style.position = 'absolute';
+    }
 
-    if (!container) return; // Pengaman jika container tidak ditemukan
+    const container = tombol.closest('.container-tombol');
+    if (!container) return;
 
     const containerRect = container.getBoundingClientRect();
     const tombolRect = tombol.getBoundingClientRect();
 
-    let newTop = Math.random() * (containerRect.height - tombolRect.height);
-    let newLeft = Math.random() * (containerRect.width - tombolRect.width);
+    const maxX = containerRect.width - tombolRect.width;
+    const maxY = containerRect.height - tombolRect.height;
 
-    tombol.style.position = "absolute";
-    tombol.style.top = `${newTop}px`;
-    tombol.style.left = `${newLeft}px`;
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    tombol.style.left = '0px';
+    tombol.style.top = '0px';
+    tombol.style.transform = `translate(${randomX}px, ${randomY}px)`;
   }
 
   return (
@@ -61,14 +52,28 @@ const UngkapanCinta = () => {
       {notif && <div className="notif">{notif}</div>}
 
       {sudahDiterima ? (
-        <>
+        <div className="container-sukses">
           <img
             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
             alt="Bears kissing"
             className="gambar-gif"
           />
           <h1 className="teks-sukses">Yeay! Aku sayang kamu juga! 💕</h1>
-        </>
+          <p className="teks-tambahan">
+            Selamat, kita pacaran mulai hari ini! 🥳
+          </p>
+          <p className="teks-ajakan">
+            Yuk lanjut di WhatsApp untuk merayakannya...
+          </p>
+          <a
+            href="https://wa.me/6289522952652" // <-- GANTI DENGAN NOMOR ANDA
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tombol tombol-wa"
+          >
+            💬 Lanjut ke WhatsApp
+          </a>
+        </div>
       ) : (
         <>
           <img
@@ -87,9 +92,9 @@ const UngkapanCinta = () => {
             </button>
             <button
               className="tombol tombol-nggak"
-              onClick={handleNggakClick} // Untuk mengubah teks jika berhasil diklik
-              onMouseEnter={pindahkanTombol} // Event untuk MOUSE di DESKTOP
-              onTouchStart={pindahkanTombol} // Event untuk SENTUHAN di MOBILE
+              onClick={handleNggakClick}
+              onMouseEnter={pindahkanTombol}
+              onTouchStart={pindahkanTombol}
             >
               {teksTombolNggak}
             </button>
