@@ -21,30 +21,24 @@ const UngkapanCinta = () => {
     setJumlahNggak(jumlahNggak + 1);
   }
 
+  // Fungsi untuk memindahkan tombol ke seluruh layar
   function pindahkanTombol(e) {
     setNotif('Eits ga kena, coba lagi! 😉');
     setTimeout(() => setNotif(''), 2000);
 
     const tombol = e.currentTarget;
-    if (tombol.style.position !== 'absolute') {
-      tombol.style.position = 'absolute';
-    }
+    tombol.style.position = 'fixed'; // Gunakan 'fixed' untuk referensi seluruh layar
 
-    const container = tombol.closest('.container-tombol');
-    if (!container) return;
-
-    const containerRect = container.getBoundingClientRect();
     const tombolRect = tombol.getBoundingClientRect();
-
-    const maxX = containerRect.width - tombolRect.width;
-    const maxY = containerRect.height - tombolRect.height;
+    const maxX = window.innerWidth - tombolRect.width;
+    const maxY = window.innerHeight - tombolRect.height;
 
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
 
-    tombol.style.left = '0px';
-    tombol.style.top = '0px';
-    tombol.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    tombol.style.left = `${randomX}px`;
+    tombol.style.top = `${randomY}px`;
+    tombol.style.transform = '';
   }
 
   return (
@@ -66,7 +60,7 @@ const UngkapanCinta = () => {
             Yuk lanjut di WhatsApp untuk merayakannya...
           </p>
           <a
-            href="https://wa.me/6289522952652" // <-- GANTI DENGAN NOMOR ANDA
+            href="https://wa.me/6289500000000" // <-- GANTI DENGAN NOMOR ANDA (awali dengan 62)
             target="_blank"
             rel="noopener noreferrer"
             className="tombol tombol-wa"
