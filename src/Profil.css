@@ -1,0 +1,112 @@
+.profil-card {
+  background: var(--card-background, white);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--shadow-medium, 0 8px 30px rgba(0, 0, 0, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+/* --- Header --- */
+.profil-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.profil-gambar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color, #ff7675);
+}
+
+.profil-info {
+  text-align: left;
+}
+
+.profil-nama {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color, #4a4a4a);
+}
+
+.profil-ig {
+  color: var(--primary-color, #ff7675);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.profil-ig:hover {
+  text-decoration: underline;
+}
+
+.profil-alamat {
+  margin: 5px 0 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* --- Menu Navigasi --- */
+.profil-menu {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+  margin-bottom: 20px;
+}
+
+.menu-item {
+  background: none;
+  border: none;
+  padding: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+
+.menu-item.active, .menu-item:hover {
+  color: var(--text-color, #4a4a4a);
+  border-bottom: 3px solid var(--primary-color, #ff7675);
+}
+
+/* --- Galeri --- */
+.galeri-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.galeri-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.galeri-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 400px) {
+  .profil-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profil-info {
+    text-align: center;
+  }
+}

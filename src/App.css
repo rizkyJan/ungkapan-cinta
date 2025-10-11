@@ -1,0 +1,42 @@
+.app-container {
+  width: 100%;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  position: sticky; /* Membuat nav tetap di atas saat scroll */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.nav-button {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #e0e0e0;
+}
+
+.nav-button.active {
+  background: var(--primary-color, #ff7675);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(255, 118, 117, 0.4);
+}
