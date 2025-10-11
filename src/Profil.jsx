@@ -1,5 +1,5 @@
 import React from 'react';
-import './Profil.css'; // Kita akan buat file CSS ini nanti
+import './Profil.css'; 
 
 // Ganti URL gambar di bawah ini dengan URL gambar Anda sendiri.
 // Anda bisa mengunggah gambar ke imgbb.com atau sejenisnya untuk mendapatkan URL.
