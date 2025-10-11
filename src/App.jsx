@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UngkapanCinta from './UngkapanCinta';
-import Profil from './profil'; // Impor komponen Profil yang baru
+import Profil from './Profil'; // Impor komponen Profil yang baru
 import './App.css'; // Kita akan buat CSS ini untuk navigasi
 
 function App() {
@@ -32,6 +32,5 @@ function App() {
     </div>
   );
 }
-// aku
 
 export default App;
