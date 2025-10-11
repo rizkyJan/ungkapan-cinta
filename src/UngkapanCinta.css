@@ -1,0 +1,133 @@
+/* --- 1. Import Font & Gaya Global --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+:root {
+  --primary-color: #ff7675; /* Merah muda cerah */
+  --secondary-color: #2ecc71; /* Hijau segar */
+  --background-gradient: linear-gradient(135deg, #fff1f2 0%, #fde2e4 100%);
+  --card-background: rgba(255, 255, 255, 0.85);
+  --text-color: #4a4a4a;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background: var(--background-gradient);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- 2. Gaya Kartu Utama --- */
+.container-cinta {
+  background: var(--card-background);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- 3. Gambar & Teks --- */
+.gambar-gif {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.teks-pertanyaan, .teks-sukses {
+  color: var(--text-color);
+  font-size: clamp(1.5rem, 5vw, 2.1rem); /* Font responsif */
+  font-weight: 800;
+  margin: 0 0 30px 0;
+}
+
+/* --- 4. Tombol --- */
+.container-tombol {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  min-height: 50px; /* Memberi ruang agar tombol 'Nggak' bisa bergerak */
+  position: relative;
+}
+
+.tombol {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  color: white;
+}
+
+.tombol:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-medium);
+}
+
+.tombol-iya {
+  background-color: var(--secondary-color);
+}
+
+.tombol-nggak {
+  background-color: var(--primary-color);
+  transition: top 0.4s ease, left 0.4s ease, transform 0.3s ease;
+}
+
+/* --- 5. Notifikasi --- */
+.notif {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  z-index: 1000;
+  font-weight: 700;
+  box-shadow: var(--shadow-medium);
+  animation: slideDownFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideDownFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* --- 6. Media Query untuk Layar Lebih Besar (Tablet & Desktop) --- */
+@media (min-width: 600px) {
+  .container-cinta {
+    padding: 40px;
+  }
+  
+  .gambar-gif {
+    width: 200px;
+    height: 200px;
+  }
+
+  .tombol {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+  }
+}
