@@ -3,7 +3,7 @@ import './Profil.css'; // Kita akan buat file CSS ini nanti
 
 // Ganti URL gambar di bawah ini dengan URL gambar Anda sendiri.
 // Anda bisa mengunggah gambar ke imgbb.com atau sejenisnya untuk mendapatkan URL.
-const FOTO_PROFIL = 'https://i.ibb.co/6PzQyq8/placeholder-profile.jpg';
+const FOTO_PROFIL = 'https://i.ibb.co.com/vCT6Mwq8/Whats-App-Image-2025-10-11-at-18-44-00-695dbc7f.jpg';
 const FOTO_GALERI = [
   'https://picsum.photos/id/10/300/300',
   'https://picsum.photos/id/20/300/300',
